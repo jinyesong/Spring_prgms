@@ -1,7 +1,10 @@
-package com.prgms.springorder;
+package com.prgms.springorder.voucher;
+
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@Service
 public class VoucherService {
     public final VoucherRepository voucherRepository;
 

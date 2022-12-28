@@ -1,4 +1,4 @@
-package com.prgms.springorder;
+package com.prgms.springorder.voucher;
 
 import java.util.UUID;
 
@@ -13,11 +13,11 @@ public class FixedAmountVoucher implements Voucher{
 
     @Override
     public UUID getVoucherId() {
-        return null;
+        return voucherId;
     }
 
     @Override
     public long discount(long beforeDiscount) {
-        return 0;
+        return beforeDiscount-amount;
     }
 }

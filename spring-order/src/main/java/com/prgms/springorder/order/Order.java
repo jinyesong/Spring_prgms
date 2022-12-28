@@ -1,6 +1,7 @@
-package com.prgms.springorder;
+package com.prgms.springorder.order;
 
-import javax.swing.text.html.Option;
+import com.prgms.springorder.voucher.Voucher;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -33,5 +34,9 @@ public class Order {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public UUID getOrderid(){
+        return orderid;
     }
 }

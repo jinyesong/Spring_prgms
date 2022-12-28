@@ -1,4 +1,4 @@
-package com.prgms.springorder;
+package com.prgms.springorder.order;
 
 import java.util.UUID;
 

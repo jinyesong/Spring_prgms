@@ -1,8 +1,10 @@
-package com.prgms.springorder;
+package com.prgms.springorder.voucher;
+
+import com.prgms.springorder.voucher.Voucher;
 
 import java.util.UUID;
 
-public class PercentDiscountVoucher implements Voucher{
+public class PercentDiscountVoucher implements Voucher {
     private final UUID voucherId;
     private final long percent;
 
