@@ -1,7 +1,6 @@
 package com.prgms.springorder.voucher;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
@@ -10,9 +9,8 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
-//@Primary //VoucherRepository를 implements한 bean이 두개 -> 어떤 것을 Autowired 해야할지 우선순위를 정하기
-@Qualifier("memory") //다른 기능으로 사용하기위해 구분할 때 -> 사용하는 쪽에서 지정을 해줘야 함(Voucher Service)
-public class MemoryVoucherRepository implements VoucherRepository{
+@Qualifier("jdbc")
+public class JdbcVoucherRepository implements VoucherRepository{
     private final Map<UUID, Voucher> storage = new ConcurrentHashMap<>();
     @Override
     public Optional<Voucher> findById(UUID voucherId) {
