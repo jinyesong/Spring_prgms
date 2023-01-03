@@ -8,6 +8,7 @@ import org.apache.naming.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.BeanFactoryAnnotationUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.util.Assert;
+import org.thymeleaf.standard.expression.MessageExpression;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -19,6 +20,10 @@ public class OrderTester {
         var customerId = UUID.randomUUID();
 
         var voucherRepository = BeanFactoryAnnotationUtils.qualifiedBeanOfType(applicationContext.getBeanFactory(), VoucherRepository.class, "memory");
+        var voucherRepository2 = BeanFactoryAnnotationUtils.qualifiedBeanOfType(applicationContext.getBeanFactory(), VoucherRepository.class, "memory");
+        System.out.println(MessageFormat.format("voucherRepository {0}", voucherRepository));
+        System.out.println(MessageFormat.format("voucherRepository2 {0}", voucherRepository2));
+        System.out.println(MessageFormat.format("voucherRepository == voucherRepository2 => {0}", voucherRepository == voucherRepository2));
         //applicationContext.getBean(VoucherRepository.class); -> x
         //bean을 가져올 때도 두개 이상이라면 자동주입할 bean을 지정해주어야 함
         var voucher = voucherRepository.insert(new FixedAmountVoucher(UUID.randomUUID(), 10L));
